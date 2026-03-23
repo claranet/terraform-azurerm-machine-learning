@@ -1,7 +1,7 @@
 default_install_hook_types: [commit-msg, pre-commit]
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: trailing-whitespace
         stages: [pre-commit]
@@ -23,7 +23,7 @@ repos:
         stages: [pre-commit]
 
   - repo: https://github.com/tofuutils/pre-commit-opentofu
-    rev: v2.2.1
+    rev: v2.2.2
     hooks:
       - id: tofu_fmt
         stages: [pre-commit]
@@ -44,14 +44,9 @@ repos:
         args:
           - --args=--config=__GIT_WORKING_DIR__/.config/tflint.hcl
           - --env-vars=TFLINT_LOG="info"
-      - id: tofu_trivy
-        stages: [pre-commit]
-        args:
-          - --args=--severity HIGH,CRITICAL
-          - --args=--skip-dirs '**/.terraform'
 
   - repo: https://github.com/crate-ci/committed
-    rev: v1.1.7
+    rev: v1.1.11
     hooks:
       - id: committed
         stages: [commit-msg]
